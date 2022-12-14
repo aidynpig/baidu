@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="keywords" content="Kinh,KinhDown,百度云盘,解析地址,KinhDown - 百度云盘 - 解析地址" />
+        <meta name="description" content="Kinh,KinhDown,百度云盘,解析地址,KinhDown - 百度云盘 - 解析地址" />
+        <title>KinhDown - 百度云盘 - 解析地址</title>
+        <link rel="icon" href="https://ae05.alicdn.com/kf/H45841aef355b407da2c4e66d99f13e07z.png" />
+        <link rel="stylesheet" href="https://cdn.staticfile.org/mdui/1.0.2/css/mdui.min.css" />
+        <link rel="stylesheet" href="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.css" />
+        <link rel="stylesheet" href="https://bucket.kinh.cc/CSS/MDUI.css" />
+        <script src="https://cdn.staticfile.org/mdui/1.0.2/js/mdui.min.js"></script>
+        <script src="https://cdn.staticfile.org/limonte-sweetalert2/11.6.5/sweetalert2.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/js-sha1/0.6.0/sha1.min.js"></script>
+        <script src="https://bucket.kinh.cc/JavaScript/LoadIng.js"></script>
+        <script src="https://bucket.kinh.cc/JavaScript/APIRequest.js"></script>
+
+        <style>
+            body {
+                background-color: #eef1f5;
+            }
+        </style>
+    </head>
+
+    <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-indigo">
+        <header class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="./" class="mdui-typo-headline" mdui-tooltip="{content:'百度云盘在线解析'}">KinhDown - 百度云盘 - 解析地址</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="./Parse/" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons" mdui-tooltip="{content:'解析列表'}">file_download</i></a>
+            </div>
+        </header>
+
+        <div class="mdui-container mdui-p-t-3">
+            <div class="mdui-card">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">解析</div>
+                    <div class="mdui-card-primary-subtitle">解析百度云盘分享地址</div>
+
+                    <div class="mdui-card-menu">
+                        <button id="Tutorial" class="mdui-btn mdui-color-green-600 mdui-ripple mdui-btn-raised" mdui-tooltip="{content:'看完就会用'}">
+                            <i class="mdui-icon mdui-icon-left material-icons">ondemand_video</i>
+                            视频教程
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mdui-card-content" style="padding-top: 16px">
+                    <div class="mdui-textfield" style="padding-top: 0px">
+                        <label class="mdui-textfield-label">分享地址</label>
+                        <input class="mdui-textfield-input" id="Link" type="text" />
+                    </div>
+
+                    <div class="mdui-textfield" style="padding-top: 0px">
+                        <label class="mdui-textfield-label">提取码</label>
+                        <input class="mdui-textfield-input" id="Code" type="text" />
+                    </div>
+
+                    <div class="mdui-col" style="padding-top: 8px; padding-bottom: 8px">
+                        <label class="mdui-checkbox mdui-typo" mdui-tooltip="{content:'同意服务条款'}">
+                            <input type="checkbox" id="TermsOfServiceInput" />
+                            <i class="mdui-checkbox-icon"></i>
+                            <a id="TermsOfServiceReplace">服务条款</a>
+                        </label>
+                    </div>
+
+                    <div class="mdui-col" style="padding-top: 8px; padding-right: 0px; padding-left: 0px; padding-bottom: 8px">
+                        <button id="Parse" class="mdui-btn mdui-color-indigo mdui-btn-block mdui-ripple mdui-btn-raised" mdui-tooltip="{content:'解析百度云盘分享地址'}">
+                            <i class="mdui-list-item-icon mdui-icon material-icons" style="margin-top: -2px">arrow_forward</i>
+                            解析分享地址
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdui-container mdui-p-t-3">
+            <div class="mdui-card">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">公告</div>
+                    <div class="mdui-card-primary-subtitle">必看</div>
+                </div>
+
+                <div class="mdui-card-content" id="Announcement">正在加载中...</div>
+            </div>
+        </div>
+
+        <div class="mdui-p-t-3"></div>
+
+        <div style="height: 68px"></div>
+        <footer class="mdui-typo" style="left: 0px">
+            <p>Copyright © 2019 - 2022 <a style="font-weight: 600" href="https://kinh.cc">Kinh</a></p>
+        </footer>
+    </body>
+
+    <script>
+        $(function () {
+            const JavaScriptAFDianDocument = document.createElement("script");
+            JavaScriptAFDianDocument.src = "./AFDian.js?Rnad=" + Math.random();
+            document.body.appendChild(JavaScriptAFDianDocument);
+
+            JavaScriptAFDianDocument.onload = function () {
+                const JavaScriptBaiDuCloudListDocument = document.createElement("script");
+                JavaScriptBaiDuCloudListDocument.src = "./BaiDuCloudList.js?Rnad=" + Math.random();
+                document.body.appendChild(JavaScriptBaiDuCloudListDocument);
+
+                JavaScriptBaiDuCloudListDocument.onload = function () {
+                    const JavaScriptDocument = document.createElement("script");
+                    JavaScriptDocument.src = "./JavaScript.js?Rnad=" + Math.random();
+                    document.body.appendChild(JavaScriptDocument);
+
+                    JavaScriptDocument.onload = function () {
+                        APIRequest("GET", "https://api.kinh.cc/Content/KinhDownNotice.php").then(function (ResultSplit) {
+                            if (ResultSplit[0] == true) {
+                                document.getElementById("Announcement").innerText = ResultSplit[1]["Content"];
+                            } else {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "请求错误",
+                                    text: "获取公告信息错误",
+                                    confirmButtonText: "刷新",
+                                    confirmButtonColor: "#3f51b5",
+                                }).then(function () {
+                                    window.location.reload();
+                                });
+                            }
+                        });
+
+                        (function (d, w, c) {
+                            if (w[c]) return;
+                            var s = d.createElement("script");
+                            w[c] = function () {
+                                (w[c].z = w[c].z || []).push(arguments);
+                            };
+                            s.async = true;
+                            s.src = "https://static.ahc.ink/hecong.js";
+                            if (d.head) d.head.appendChild(s);
+                        })(document, window, "_AIHECONG");
+
+                        _AIHECONG("ini", { channelId: "Es28mI" });
+                    };
+                };
+            };
+        });
+    </script>
+</html>
